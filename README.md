@@ -41,3 +41,7 @@ Despite codeocean not being able to use GPU to handle the graph processing, a ju
 
 ### 3. R-MedGAN_metrics
 - TensorBoard allows to monitor metrics such as the reward (connectivity)
+
+### 4. R-MedGAN_sample
+- In the folder 'code' there is a jupyter notebook sample of a run for several epochs and the output print
+- There is also a tensorboard logs image inside 'code' folder with the result for the initial example running epochs where is clear the growth of connected validity as the adaptative scaling progresses
