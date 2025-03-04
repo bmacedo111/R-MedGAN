@@ -1,0 +1,55 @@
+Model: "Generator"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(None, 256)]        0           []                               
+                                                                                                  
+ dense (Dense)                  (None, 128)          32896       ['input_1[0][0]']                
+                                                                                                  
+ dropout (Dropout)              (None, 128)          0           ['dense[0][0]']                  
+                                                                                                  
+ dense_1 (Dense)                (None, 256)          33024       ['dropout[0][0]']                
+                                                                                                  
+ dropout_1 (Dropout)            (None, 256)          0           ['dense_1[0][0]']                
+                                                                                                  
+ dense_2 (Dense)                (None, 512)          131584      ['dropout_1[0][0]']              
+                                                                                                  
+ dropout_2 (Dropout)            (None, 512)          0           ['dense_2[0][0]']                
+                                                                                                  
+ dense_3 (Dense)                (None, 1024)         525312      ['dropout_2[0][0]']              
+                                                                                                  
+ dropout_3 (Dropout)            (None, 1024)         0           ['dense_3[0][0]']                
+                                                                                                  
+ dense_4 (Dense)                (None, 2048)         2099200     ['dropout_3[0][0]']              
+                                                                                                  
+ dropout_4 (Dropout)            (None, 2048)         0           ['dense_4[0][0]']                
+                                                                                                  
+ dense_5 (Dense)                (None, 4096)         8392704     ['dropout_4[0][0]']              
+                                                                                                  
+ dropout_5 (Dropout)            (None, 4096)         0           ['dense_5[0][0]']                
+                                                                                                  
+ dense_6 (Dense)                (None, 12500)        51212500    ['dropout_5[0][0]']              
+                                                                                                  
+ reshape (Reshape)              (None, 5, 50, 50)    0           ['dense_6[0][0]']                
+                                                                                                  
+ tf.compat.v1.transpose (TFOpLa  (None, 5, 50, 50)   0           ['reshape[0][0]']                
+ mbda)                                                                                            
+                                                                                                  
+ tf.__operators__.add (TFOpLamb  (None, 5, 50, 50)   0           ['reshape[0][0]',                
+ da)                                                              'tf.compat.v1.transpose[0][0]'] 
+                                                                                                  
+ dense_7 (Dense)                (None, 550)          2253350     ['dropout_5[0][0]']              
+                                                                                                  
+ tf.math.truediv (TFOpLambda)   (None, 5, 50, 50)    0           ['tf.__operators__.add[0][0]']   
+                                                                                                  
+ reshape_1 (Reshape)            (None, 50, 11)       0           ['dense_7[0][0]']                
+                                                                                                  
+ softmax (Softmax)              (None, 5, 50, 50)    0           ['tf.math.truediv[0][0]']        
+                                                                                                  
+ softmax_1 (Softmax)            (None, 50, 11)       0           ['reshape_1[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 64,680,570
+Trainable params: 64,680,570
+Non-trainable params: 0
+__________________________________________________________________________________________________

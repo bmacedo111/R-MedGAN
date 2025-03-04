@@ -25,6 +25,9 @@ The 100k quinoline dataset is included:
 Each row contains a SMILES string representing a filtered quinoline molecule.
 The 100,000 saved graphs can be found on MedGAN repository (https://github.com/bmacedo111/MedGAN/tree/main/data/data_zinc15_subset-iii)
 
+## CodeOcean run
+Despite codeocean not being able to use GPU to handle the graph processing, a jupyter notebook with this run is available with the outputs to check the evolution of reward. The starting point was epoch 400 for the lowest model (100,000 graphs). In this run is posible to monitor the increase in connectivity, the reward, when the adaptative scaling grows. A tensorboard log is available to check for the metrics.
+
 ## Implementation
 ### 1. R-MedGAN_WGAN-GP
 - Create a `logs` folder for TensorBoard metrics (one for each model).

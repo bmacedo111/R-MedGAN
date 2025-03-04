@@ -1,0 +1,42 @@
+Model: "Discriminator"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_2 (InputLayer)           [(None, 5, 50, 50)]  0           []                               
+                                                                                                  
+ input_3 (InputLayer)           [(None, 50, 11)]     0           []                               
+                                                                                                  
+ relational_graph_conv_layer (R  (None, 50, 512)     28160       ['input_2[0][0]',                
+ elationalGraphConvLayer)                                         'input_3[0][0]']                
+                                                                                                  
+ relational_graph_conv_layer_1   (None, 50, 512)     1310720     ['input_2[0][0]',                
+ (RelationalGraphConvLayer)                                       'relational_graph_conv_layer[0][
+                                                                 0]']                             
+                                                                                                  
+ relational_graph_conv_layer_2   (None, 50, 512)     1310720     ['input_2[0][0]',                
+ (RelationalGraphConvLayer)                                       'relational_graph_conv_layer_1[0
+                                                                 ][0]']                           
+                                                                                                  
+ relational_graph_conv_layer_3   (None, 50, 512)     1310720     ['input_2[0][0]',                
+ (RelationalGraphConvLayer)                                       'relational_graph_conv_layer_2[0
+                                                                 ][0]']                           
+                                                                                                  
+ global_average_pooling1d (Glob  (None, 512)         0           ['relational_graph_conv_layer_3[0
+ alAveragePooling1D)                                             ][0]']                           
+                                                                                                  
+ dense_8 (Dense)                (None, 4096)         2101248     ['global_average_pooling1d[0][0]'
+                                                                 ]                                
+                                                                                                  
+ dropout_6 (Dropout)            (None, 4096)         0           ['dense_8[0][0]']                
+                                                                                                  
+ dense_9 (Dense)                (None, 4096)         16781312    ['dropout_6[0][0]']              
+                                                                                                  
+ dropout_7 (Dropout)            (None, 4096)         0           ['dense_9[0][0]']                
+                                                                                                  
+ dense_10 (Dense)               (None, 1)            4097        ['dropout_7[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 22,846,977
+Trainable params: 22,846,977
+Non-trainable params: 0
+__________________________________________________________________________________________________
