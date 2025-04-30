@@ -26,7 +26,11 @@ Each row contains a SMILES string representing a filtered quinoline molecule.
 The 100,000 saved graphs can be found on MedGAN repository (https://github.com/bmacedo111/MedGAN/tree/main/data/data_zinc15_subset-iii)
 
 ## CodeOcean run
-Despite codeocean not being able to use GPU to handle the graph processing, a jupyter notebook with this run is available with the outputs to check the evolution of reward. The starting point was epoch 400 for the lowest model (100,000 graphs). In this run is posible to monitor the increase in connectivity, the reward, when the adaptative scaling grows. A tensorboard log is available to check for the metrics.
+The public capsule (DOI 10.24433/CO.0691778.v1) recreates the Docker image and launches on Code Ocean’s free Tesla T4 kernel. Because that kernel cannot accommodate the full 1 M-molecule run, the capsule bundles a 100 k-molecule subset plus the epoch-400 checkpoint.
+
+R-MedGAN_model3_zinc15iii_RL_100k.ipynb loads the checkpoint, verifies that training has reached its final epoch, and re-saves the weights—demonstrating an end-to-end, error-free pass in under one minute.
+
+R-MedGAN_model3_zinc15iii_RL_100k_example-runs.ipynb retrains 19 epochs on the subset so users can watch the accordion-style reward and connectivity curves rise; the matching TensorBoard log and a PNG snapshot of the metrics are included in /code.
 
 ## Implementation
 ### 1. R-MedGAN_WGAN-GP
